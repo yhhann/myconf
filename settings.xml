@@ -1,0 +1,96 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+	<localRepository></localRepository>
+	<profiles>
+		<profile>
+			<id>release-repo</id>
+			<repositories>
+				<repository>
+					<id>release</id>
+					<name>release Repository</name>
+					<url>http://repos.eff.com:8088/content/groups/public</url>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>warn</checksumPolicy>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>release</id>
+					<name>release Repository</name>
+					<url>http://repos.eff.com:8088/content/groups/public</url>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>warn</checksumPolicy>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+		<profile>
+			<id>snapshot-repo</id>
+			<repositories>
+				<repository>
+					<id>snapshot</id>
+					<name>Snapshot Repository</name>
+					<!--
+					<url>http://repos.eff.com:8088/content/repositories/snapshots</url>
+					-->
+					<url>http://repos.eff.com:8088/content/groups/public-snapshots</url>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>warn</checksumPolicy>
+					</snapshots>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>snapshot</id>
+					<name>Snapshot Repository</name>
+					<!--
+					<url>http://repos.eff.com:8088/content/repositories/snapshots/</url>
+					-->
+					<url>http://repos.eff.com:8088/content/groups/public-snapshots/</url>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+						<checksumPolicy>warn</checksumPolicy>
+					</snapshots>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
+
+	<mirrors>
+		<!-- codehaus snapshots is DEAD, we setup spring snapshot to avoid downloading from it -->
+<!-- codehaus-snapshots is mirrored by spring-snapshorts on maven repo [nexus] -->
+		<mirror>
+			<id>spring-snapshorts</id>
+			<url>http://maven.springframework.org/snapshot</url>
+			<mirrorOf>codehaus-snapshots</mirrorOf>	
+		</mirror>
+	</mirrors>
+
+	<activeProfiles>
+		<activeProfile>release-repo</activeProfile>
+		<activeProfile>snapshot-repo</activeProfile>
+	</activeProfiles>
+
+</settings>

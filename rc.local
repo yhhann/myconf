@@ -1,0 +1,17 @@
+#!/bin/sh
+
+export BASEDIR=`pwd`
+
+cd /home/yhhan/app/mongodb
+./start.sh
+
+export JAVA_HOME=/home/yhhan/app/jdk1.8.0_131
+export JAVA=$JAVA_HOME/bin/java
+cd /home/yhhan/app/zookeeper-3.4.13
+bin/zkServer.sh start
+
+cd $BASEDIR
+
+echo "rc.local OK" > /var/log/rc-local.log
+
+exit 0

@@ -1,0 +1,17 @@
+1. 安装Ubuntu 18.04
+2. 安装搜狗中文输入法
+3. 安装stardict
+4. 安装Chrome以及插件，Firefox插件，主要包括evernote剪贴插件和广告过滤插件
+5. 设置网络代理
+    由于golang的很多包使用https协议访问，因此切记配置代理时把http和https的代理一并配置上，验证设置是否成功的办法是：
+    curl http://www.google.com 和 curl https://www.google.com
+
+6. 安装golang环境，java环境
+
+7. 安装mysql，注意密码的设置
+    参考mysql-install.txt
+8. 安装mongo、zookeeper、glusterfs、seaweed、maven
+9. 设置rc.local启动项
+    ubuntu 18.04 缺省不使用rc.local，需要进行配置之后才可以用。
+10. 设置ntp
+11
